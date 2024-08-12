@@ -34,7 +34,24 @@ const index = async () => {
   };
 
   
+
+const updatePet = async (formData, petId) => {
+  try {
+    const res = await fetch(`http://localhost:3000/pets/${petId}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    });
+    return res.json();
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+  
   export { index };
   export { create };  
-
+  export { updatePet };
   
