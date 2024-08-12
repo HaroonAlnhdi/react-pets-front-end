@@ -1,12 +1,12 @@
 
-// const BASE_URL = `${import.meta.env.VITE_BACK_END_SERVER_URL}/pets`;
+const BASE_URL = `${import.meta.env.VITE_BACK_END_SERVER_URL}/pets`;
 
 // const cors = require('cors');
 
 
 const index = async () => {
     try {
-      const res = await fetch('http://localhost:3000/pets');
+      const res = await fetch(BASE_URL);
       return res.json();
     } catch (err) {
       console.log(err);
@@ -15,7 +15,7 @@ const index = async () => {
 
   const create = async (formData) => {
     try {
-      const res = await fetch('http://localhost:3000/pets', {
+      const res = await fetch(BASE_URL, {
         // We specify that this is a 'POST' request
         method: 'POST',
         // We're sending JSON data, so we attach a Content-Type header
@@ -37,7 +37,7 @@ const index = async () => {
 
 const updatePet = async (formData, petId) => {
   try {
-    const res = await fetch(`http://localhost:3000/pets/${petId}`, {
+    const res = await fetch(`${BASE_URL}/${petId}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -53,7 +53,7 @@ const updatePet = async (formData, petId) => {
 
 const deletePet = async (petId) => {
   try {
-    const res = await fetch(`http://localhost:3000/pets/${petId}`, {
+    const res = await fetch(`${BASE_URL}/${petId}`, {
       method: 'DELETE',
     });
     return res.json();
