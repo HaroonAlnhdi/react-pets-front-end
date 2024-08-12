@@ -30,33 +30,32 @@ const [formData, setFormData] = useState(props.selected ? props.selected : initi
     
 
   return (
-    <div>
-      <form onSubmit={handleSubmitForm}>
-        <label htmlFor="name"> Name </label>
-        <input
-          id="name"
-          name="name"
-          value={formData.name}
-          onChange={handleChange}
-          required
-        />
-        <label htmlFor="age"> Age </label>
-        <input
-          id="age"
-          name="age"
-          value={formData.age}
-          onChange={handleChange}
-        />
-        <label htmlFor="breed"> Breed </label>
-        <input
-          id="breed"
-          name="breed"
-          value={formData.breed}
-          onChange={handleChange}
-        />
-        <button type="submit">Add New Pet</button>
-      </form>
-    </div>
+   // PetForm.jsx
+
+<div className="form-container">
+  <form onSubmit={handleSubmitForm}>
+    <label htmlFor="name"> Name </label>
+    <input
+      id="name"
+      name="name"
+      value={formData.name}
+      onChange={handleChange}
+      required
+    />
+    <label htmlFor="age"> Age </label>
+    <input id="age" name="age" value={formData.age} onChange={handleChange} />
+    <label htmlFor="breed"> Breed </label>
+    <input
+      id="breed"
+      name="breed"
+      value={formData.breed}
+      onChange={handleChange}
+    />
+    <button type="submit">
+      {props.selected ? 'Update Pet' : 'Add New Pet'}
+    </button>
+  </form>
+</div>
   );
 };
 
